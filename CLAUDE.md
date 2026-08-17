@@ -126,7 +126,6 @@ The following features have been **completely removed** from the `dev-rm520` bra
 | Feature | Reason | Scope of Removal |
 |---------|--------|-----------------|
 | VPN Management (NetBird only) | Third-party binary, fw4/mwan3 dependencies | CGI, hooks, components for NetBird |
-| Video Optimizer / Traffic Masquerade (DPI) | nftables dependency, nfqws ARM32 not validated | CGI, hooks, components, types, dpi_helper.sh, installer |
 | Low Power Mode | Daemons removed earlier; `save_low_power` CGI action + `low_power_*` config seeds retired in the crond→systemd-timer migration — no Low Power code remains | qmanager_low_power, qmanager_low_power_check, `save_low_power`, `low_power_*` seeds |
 
 ## Feature-Specific Notes
@@ -156,6 +155,7 @@ Each feature below has a reference doc holding its invariants, gotchas, and rati
 | **Dashboard chart cards** | Device Metrics, Live Latency, Signal History, `hooks/use-chart-motion.ts`, recharts | `dashboard-chart-cards.md` |
 | **Dashboard state-change motion** | `TickGroup`/`useValueTick`, `SwapLabel`, status-chip morph, live value ticks, and `SaveButton`'s save flow | `dashboard-state-motion.md` |
 | **Custom DNS** | `/local-network/custom-dns`, dnsmasq upstreams | `custom-dns.md` |
+| **Traffic Engine (DPI bypass)** | `/local-network/traffic-engine`, the tpws recipe in `dpi_build_args()` (drop-`--tlsrec` rule, `--filter-l7`, no `-m comment`, hostlist hot-reload), the manifest+pin provisioning, the verify helper's trap-restore, or the inert `sni_domain` contract key | `dpi.md` |
 | **Data Usage Counter** | `/proc/net/dev` counters, usage schema, orientation map | `data-usage-counter.md` |
 | **Ethernet Status & Link Speed** | `/local-network/ethernet`, `eth0`, `ethtool`, `qmanager_ethernet_apply` | `ethernet.md` |
 | **Centralized Alerts** | `/monitoring/alerts`, `alert_engine.sh`, SMS/email/Discord routing — **and** alert-channel secret storage: `/etc/qmanager-secrets/`, the `qmanager_secret_set` / `qmanager_email_send` root helpers, the `token_set` / `app_password_set` markers, and why a chmod inside `/etc/qmanager` is never the fix | `alerts.md` |
