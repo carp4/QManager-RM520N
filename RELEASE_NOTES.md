@@ -257,6 +257,10 @@ Custom SIM Profiles gets a full redesign and absorbs Connection Scenarios, so on
 - **Network Priority now knows whether you've changed anything.** Save used to be permanently lit, and pressing it with nothing changed answered with "No changes to save" *after* a round trip to the modem. A pending-changes bar now appears only when your order actually differs, with a Discard beside it.
 - **4G no longer renders green and 3G red on Network Priority.** The technology rows were coloured with the same green and red QManager uses everywhere for "healthy" and "broken", so a perfectly fine 4G row looked like good news and a working 3G fallback looked like a fault. Each row now wears its radio's own colour instead.
 
+- **The Traffic Engine page no longer says "Stopped" while the engine is running.** The status card read the engine's state through a privilege ladder the web interface's user doesn't have on every modem model, so the card could report Stopped — with a live packet counter beneath it. The page now checks for the engine's actual process first, which works everywhere, and only asks systemd for finer detail (Restarting / Error) when that query is permitted.
+- **"Packets processed" no longer resets to zero once a minute.** The Traffic Engine's housekeeping timer re-created its redirect rule once a minute even when nothing was wrong, wiping the counter each time; traffic totals would visibly collapse mid-stream. The rule is now left alone unless it's actually missing.
+- **Traffic Masquerade lost a button it didn't need.** The tab kept an Apply button from the design this page was ported from, where a text field needed submitting; here the switch saves the moment you flip it, so the button is gone — matching the Video Optimizer tab.
+
 ## 📥 Installation
 
 ### Upgrading from v0.1.13
