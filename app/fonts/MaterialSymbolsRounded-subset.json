@@ -53,6 +53,7 @@
     "lock_open",
     "mark_email_unread",
     "memory",
+    "monitor",
     "more_horiz",
     "more_vert",
     "my_location",
@@ -109,6 +110,6 @@
     "wifi_tethering_off",
     "work"
   ],
-  "bytes": 40636,
-  "sha256": "29e93b20aa45db499341970fbdf3b9e1a1172e72833af6c61f396cbb886f5a3e"
+  "bytes": 40932,
+  "sha256": "04abc3abbb39f3603b27a252aaf7cefdd46b79fd9fbceb2cb2838da017515d10"
 }
