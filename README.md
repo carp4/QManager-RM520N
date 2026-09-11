@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This project is obsolete. Please install a newer version of QManager.**
+
 # QManager
 
 <div align="center">
